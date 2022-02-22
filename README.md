@@ -1,24 +1,17 @@
-# create-svelte
+# Zen MarkDown Editor
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is a browser markdown Editor built in Svelte-Kit. It is a simple but powerful editor that can be used to write in markdown and reuse this content in other projects. 
 
-## Creating a project
+Nothing will be saved on our servers. The content is stored in the browser's local storage and as long as you don't clear this storage, you can edit and save your content even after you close the browser.
 
-If you're seeing this, you've probably already done this step. Congrats!
+Clicking on the "eye" icon gives you a preview of the content without the markdown syntax.
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+Clicking on the "copy" icon copies the content to the clipboard. You can then reuse it for example in a blog post on Hashnode or any other service that supports markdown.
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
+The editor was created with [EasyMDE](https://github.com/Ionaru/easy-markdown-editor), a markdown editor that is built on top of the [simple-markdown-editor](https://github.com/sparksuite/simplemde-markdown-editor/).
 
-> Note: the `@next` is temporary
+## To run your own version use locally
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
@@ -27,7 +20,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+## For webservers
 
 To create a production version of your app:
 
@@ -35,6 +28,11 @@ To create a production version of your app:
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+You can then preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### Why this project?
+
+This app was created for the Hashnode and Netlify Hackathon. The assignment was to create an app running on the netlify servers. 
+To see a live version of this app visit: 
+
+Live Demo: https://zen-markdown-editor.netlify.app/
