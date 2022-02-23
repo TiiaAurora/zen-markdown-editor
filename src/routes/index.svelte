@@ -174,6 +174,7 @@
 	.editor {
 		margin-top: calc(max(min(92vw, 780px), 400px) / 4);
 		transition: margin-top 1s ease-in-out;
+		margin-bottom: 70px;
 	}
 
 	.hidden-tool .logo {
