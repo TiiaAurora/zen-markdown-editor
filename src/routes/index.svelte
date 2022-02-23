@@ -62,7 +62,9 @@
 				}
 			],
 			status: ['autosave', 'words'],
-			hideIcons: ['fullscreen', 'side-by-side']
+			hideIcons: ['fullscreen', 'side-by-side'],
+			placeholder:
+				'Hello! \n\n This is your distraction free markdown editor.\n You can use it to write your blog posts or to write your own documentation.\n It supports standard markdown syntax.\n Toggle the button in the top left corner to enter Zen Mode. All UI elements will be hidden, so you can focus on what is important - Your text.'
 		});
 	});
 	// Resetting the editor when clearing it
