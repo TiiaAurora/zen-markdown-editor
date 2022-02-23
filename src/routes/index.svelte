@@ -140,6 +140,8 @@
 	</button>
 </div>
 
+<img src="/writer.jpg" alt="Zen Mode Logo" class="zen-logo" />
+
 <!-- Everything in here will hide, when the Zen Mode is toggled on. -->
 <section class:hidden-tool={!showToolbar}>
 	<img class="clicktotoggle" src="/clicktotoggle.png" alt="Click to toggle tooltip" />
