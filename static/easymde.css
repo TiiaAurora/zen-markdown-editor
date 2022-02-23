@@ -222,6 +222,7 @@
     font-size: 12px;
     color: #959694;
     text-align: right;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .EasyMDEContainer.sided--no-fullscreen .editor-statusbar {
