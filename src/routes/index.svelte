@@ -1,15 +1,19 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
+	import Footer from '$lib/Footer.svelte';
 	let showToolbar = true;
 	let textele;
 	let editor: EasyMDE;
+
+	// Setting up the editor and the visible buttons of the toolbar
 	onMount(async () => {
 		const easymde = await import('easymde');
 		const EasyMDE = easymde.default;
 		editor = new EasyMDE({
 			element: textele,
 			autofocus: true,
-			spellChecker: true,
+			spellChecker: false,
+			nativeSpellcheck: true,
 			theme: 'easymde',
 			autosave: {
 				enabled: true,
@@ -43,6 +47,7 @@
 				'undo',
 				'guide',
 				'|',
+				// Adding custom buttons
 				{
 					name: 'clipboard',
 					action: saveToClipboard,
@@ -60,6 +65,7 @@
 			hideIcons: ['fullscreen', 'side-by-side']
 		});
 	});
+	// Resetting the editor when clearing it
 	onDestroy(() => {
 		if (editor) {
 			editor.toTextArea();
@@ -67,6 +73,7 @@
 		}
 	});
 
+	// Fallback solution if the modern method of copying to clipboard fails
 	function fallbackCopyTextToClipboard(text) {
 		var textArea = document.createElement('textarea');
 		textArea.value = text;
@@ -80,6 +87,7 @@
 		textArea.focus();
 		textArea.select();
 
+		// Errorhandling for copy to clipboard function support on different browsers
 		try {
 			var successful = document.execCommand('copy');
 			var msg = successful ? 'successful' : 'unsuccessful';
@@ -90,7 +98,7 @@
 
 		document.body.removeChild(textArea);
 	}
-
+	// Copy content to clipboard
 	function copyTextToClipboard(text) {
 		if (!navigator.clipboard) {
 			fallbackCopyTextToClipboard(text);
@@ -111,6 +119,7 @@
 		copyTextToClipboard(content);
 	}
 
+	// Clearing the editor textarea
 	function clearEditor() {
 		editor.value('');
 	}
@@ -118,9 +127,10 @@
 
 <svelte:head>
 	<link rel="stylesheet" href="/easymde.css" />
-	<title>Zen-Ma-rk-Do-wn</title>
+	<title>Zen Markdown Editor</title>
 </svelte:head>
 
+<!-- This creates a sticky button on the page that toggles Zen Mode -->
 <div class="sticky-button">
 	<button class="hide-toggle" on:click={() => (showToolbar = !showToolbar)}>
 		<img src="/zenlogo.svg" alt="Toggle Zen Mode" />
@@ -128,10 +138,14 @@
 	</button>
 </div>
 
+<!-- Everything in here will hide, when the Zen Mode is toggled on. -->
 <section class:hidden-tool={!showToolbar}>
 	<img class="clicktotoggle" src="/clicktotoggle.png" alt="Click to toggle tooltip" />
-	<div class="editor"><textarea title="invisible text area" bind:this={textele} /></div>
+	<div class="editor"><textarea id="invisible text area" bind:this={textele} /></div>
 	<img class="logo" src="/header.svg" alt="Zen MarkDown Editor" />
+	<footer class="footer">
+		<Footer />
+	</footer>
 </section>
 
 <style>
@@ -226,11 +240,23 @@
 		left: 10px;
 		transition: opacity 1s linear 0s;
 		font-family: 'Libre Baskerville', serif;
-		font-size: 1.5em;
+		font-size: 1.4em;
 		white-space: nowrap;
 	}
 
 	.hide-toggle:hover span {
 		opacity: 1;
+	}
+
+	.footer {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		opacity: 1;
+		transition: opacity 1s ease-in-out;
+	}
+
+	.hidden-tool .footer {
+		opacity: 0;
 	}
 </style>
