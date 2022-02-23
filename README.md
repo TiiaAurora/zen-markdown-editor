@@ -28,7 +28,9 @@ To create a production version of your app:
 npm run build
 ```
 
-You can then preview the production build with `npm run preview`.
+You can then preview the production build with `npm run preview`. 
+To deploy it on Netlify, just give Netlify access to the repository and create a build. 
+In under a minute Netlifiy will deploy the build to your website. You then just have to change the URL to your liking. 
 
 ### Why this project?
 
