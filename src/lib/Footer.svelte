@@ -10,7 +10,11 @@
 			<p>
 				This website was created as part of the <a href="https://hashnode.com">hashnode</a> and
 				<a href="http://netlify.com">netlify</a> hackathon. The blogpost on this site was created is
-				available at <a href="http://blog.tiia.rocks">my blog</a>.
+				available at
+				<a
+					href="https://thecodingchannel.hashnode.dev/creating-a-zen-markdown-editor-with-svelte-kit-and-netlify"
+					>my blog</a
+				>.
 				<br />
 				Author: <a href="https://twitter.com/tiiaaurora" target="_blank">@tiiaaurora</a>
 				GitHub: <a href="https://github.com/tiiaaurora" target="_blank">TiiaAurora</a>
